@@ -1,0 +1,54 @@
+#pragma once
+
+#include <stdio.h>
+#include <assert.h>
+#include <math.h>
+#include <string.h>
+#include "stdbool.h"
+
+const int N_COEFFS = 3; 
+const int MAX_FLAG_LEN = 10;
+const int MAX_N_ROOTS = 2;
+const double PRECISION = 10e-9;
+
+enum number_of_roots
+{
+	INFINITE_ROOTS = -1,
+	NO_ROOT = 0,
+	ONE_ROOT,
+	TWO_ROOTS,
+};
+
+
+/**
+ * Reads coefficients of the equation from the stdin.
+ * \param[in] n_coeffs Amount of coefficients.
+ * \param[out] coeffs Array with coefficients of the equation, consists of n_coeffs coefficients.
+*/
+void input_coeffs(double* coeffs, int n_coeffs);
+
+/**
+ * Solves quadratic equation with given parameters a, b, c which is written on three last places in array coeffs. 
+ * \param[in] coeffs Array with coefficients of the equation, consists of N_COEFFS coefficients. In fact, function uses only three of them:
+ *  a = coeffs[n_coeffs - 3], b = coeffs[n_coeffs - 2], c = coeffs[n_coeffs - 1].
+ * \param[in] n_coeffs Amount of coefficients.
+ * \param[in] n_roots Max amount of roots.
+ * \param[out] roots Roots of the equation. First root (if it exists) will be in roots[0], second one (if it exists) will be in roots[1].
+ * /return Amount of roots of the equation.
+*/
+int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int n_roots);
+
+/**
+ * Prints roots: two, one, no one or infinite.
+ * \param[in] roots Roots of the equation. 
+ * \param[in] n_roots Max amount of roots.
+*/
+void print_roots(const double* roots, int n_roots);
+
+void docs();
+
+/**
+ * Tests quadratic equation with given parameters a, b, c which is written in array coeffs.   
+ * /return Amount of wrong tests.
+*/
+int test_square_equation();
