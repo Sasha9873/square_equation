@@ -1,3 +1,5 @@
+/*!\file
+*/
 #include "square_equation_solve.h"
 
 int input_one_coeff(double* coeff)

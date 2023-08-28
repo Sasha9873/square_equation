@@ -1,3 +1,6 @@
+/*!\file
+*/
+
 #include "print_in_different_colours.h"
 
 void print_red(const char* str)

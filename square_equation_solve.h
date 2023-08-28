@@ -1,7 +1,9 @@
-#ifndef SQUARE_EQUATION_SOLVE_H
-#define SQUARE_EQUATION_SOLVE_H
 /*!\file
 */
+
+#ifndef SQUARE_EQUATION_SOLVE_H
+#define SQUARE_EQUATION_SOLVE_H
+
 #include "main.h"
 #include "print_in_different_colours.h"
 

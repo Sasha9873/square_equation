@@ -1,3 +1,6 @@
+/*!\file
+*/
+
 #ifndef PRINT_DIFF_COLOURS_H
 #define PRINT_DIFF_COLOURS_H
 

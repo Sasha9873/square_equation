@@ -1,3 +1,6 @@
+/*!\file
+*/
+
 #ifndef SYMBOL
 #define SYMBOL
 

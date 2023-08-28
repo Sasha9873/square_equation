@@ -1,3 +1,6 @@
+/*!\file
+*/
+
 #include "test.h"
 
 bool two_numbers_are_close(double x, double y)
