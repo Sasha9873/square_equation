@@ -1,4 +1,4 @@
-#include "square_equation_solve.h"
+#include "main.h"
 
 int main(int argc, char const *argv[])
 {
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
         return 0;
     }	
 
-	printf("You have writen something wrong.\n");
+	print_red("You have writen something wrong.\n");
 	printf("Please read documentation:\n");
 
 	docs();
