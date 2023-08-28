@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
     }	
 
 	print_red("You have writen something wrong.\n");
-	printf("Please read documentation:\n");
+	print_green("Please read documentation:\n");
 
 	docs();
 

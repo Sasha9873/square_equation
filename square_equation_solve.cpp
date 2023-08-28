@@ -30,8 +30,11 @@ void input_coeffs(double* coeffs, int n_coeffs)
 		{
 			clear_input_buffer();
 
-			print_red("\nYou have writen something wrong.\n");
+			print_red("\nYou have writen something wrong.");
 			print_red("Please write only numbers!\n");
+
+			print_magenta("If you want to read documentation, you should quit the program(cntr+C) and then run the program");
+			print_magenta("with flag [-h] or [--help] (./main -h or ./main --help)\n");
 
 			i = -1;
 		}
@@ -138,7 +141,22 @@ void print_roots(const double* roots, int n_roots)
 
 void docs()
 {
-	
+	printf("You should run the program with flags you want to use or without them.\n\n");
+	printf("EXAMPLE\n ./main\n ./main --help\n ./main -t\n\n");
+
+	printf("If you want just solve square equation just run the program.\n");
+	printf("Then you will see a message asking you to write three coefficients.\n");
+	printf("Then you shold write three real numbers that are coefficients of your square equation. \n\n");
+	printf("EXAMPLE\n");
+	printf("3.0 2 -9.999\n\n");
+
+	printf("If you write not a real number, for example, a symbol or a word, you should write all coefficients from the ");
+	printf("beginning.\n\n");
+
+	printf("Flags you can use:\n");
+
+	printf( "[--test] [-t] flags to run tests\n");
+	printf( "[--help] [-h] flags to see docs\n");
 }
 
 

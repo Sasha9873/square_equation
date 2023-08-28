@@ -3,10 +3,22 @@
 
 #include "main.h"
 
-const int MAX_TEST_NAME_LEN = 20;
-const int N_TESTS = 4;
-const int MAX_ERROR_LEN = 1024;
+const int MAX_TEST_NAME_LEN = 20;   /// Max acceptable length of the text name
+const int N_TESTS 			= 4;    /// Amount of tests
+const int MAX_ERROR_LEN 	= 1024; /// Max length of the text with all info about error 
 
+
+/**
+ * @brief 
+ * 
+ * \param coeffs  Array with coefficients of the equation, consists of N_COEFFS coefficients. 
+ * 
+ * \param roots   Right roots of the equation. First root (if it exists) will be in roots[0], second one (if it exists) will be in roots[1]. 
+ * 
+ * \param n_roots Right amount of roots of the equation.
+ * 
+ * \param name    Name of the test.
+*/
 typedef struct test_data
 {
 	double coeffs[N_COEFFS];
@@ -14,9 +26,16 @@ typedef struct test_data
 	int n_roots;
 	const char name[MAX_TEST_NAME_LEN];
 
-}test_data;
+} test_data;
 
 
+/**
+ * Prints all info about the error. 
+ * 
+ * \param[in] test  Struct with right answers and coeffs of the equation.  
+ * 
+ * \param[in] roots Roots from your own program
+*/
 void print_all_info_about_error(const test_data* test, double* roots);
 
 /**

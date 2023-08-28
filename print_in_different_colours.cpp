@@ -13,3 +13,17 @@ void print_green(const char* str)
 
 	printf(ANSI_COLOR_GREEN "%s\n" ANSI_COLOR_RESET, str);
 }
+
+void print_blue(const char* str)
+{
+	assert(str);
+
+	printf(ANSI_COLOR_BLUE "%s\n" ANSI_COLOR_RESET, str);
+}
+
+void print_magenta(const char* str)
+{
+	assert(str);
+
+	printf(ANSI_COLOR_MAGENTA "%s\n" ANSI_COLOR_RESET, str);
+}

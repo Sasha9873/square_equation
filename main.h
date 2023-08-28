@@ -10,19 +10,20 @@
 #include "square_equation_solve.h"
 #include "print_in_different_colours.h"
 
-const int N_COEFFS = 3; 
-const int MAX_FLAG_LEN = 10;
-const int MAX_N_ROOTS = 2;
-const double PRECISION = 10e-4;
+const int N_COEFFS = 3;         /// amount of coefficients in the equation
+const int MAX_FLAG_LEN = 10;    /// max length of the flag writing after ./main
+const int MAX_N_ROOTS = 2;      /// max amoutn of roots in the equation 
+const double PRECISION = 10e-4; /// double compare accuracy
 
+
+/// It is used in return statements. Value depends on amount of roots.
 enum number_of_roots
 {
 	INFINITE_ROOTS = -1,
-	NO_ROOT = 0,
-	ONE_ROOT,
-	TWO_ROOTS,
+	NO_ROOT        =  0,
+	ONE_ROOT       =  1,
+	TWO_ROOTS      =  2,
 };
-
 
 
 /**
@@ -33,6 +34,7 @@ enum number_of_roots
  * \param[out] coeffs Array with coefficients of the equation, consists of n_coeffs coefficients.
 */
 void input_coeffs(double* coeffs, int n_coeffs);
+
 
 /**
  * Solves quadratic equation with given parameters a, b, c which is written on three last places in array coeffs. AT the end clears buffer.
@@ -50,6 +52,7 @@ void input_coeffs(double* coeffs, int n_coeffs);
 */
 int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int n_roots);
 
+
 /**
  * Prints roots: two, one, no one or infinite.
  * 
@@ -59,7 +62,9 @@ int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int
 */
 void print_roots(const double* roots, int n_roots);
 
+
 void docs();
+
 
 /**
  * Tests quadratic equation with given parameters a, b, c which is written in array coeffs.   
