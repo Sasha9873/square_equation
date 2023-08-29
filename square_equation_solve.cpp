@@ -11,7 +11,7 @@ int input_one_coeff(double* coeff)
 
 void clear_input_buffer()
 {
-	char symbol;
+	char symbol = '\n';
 	while((symbol = getchar()) != '\n')
 	{
 		;
@@ -89,6 +89,8 @@ int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int
     assert (coeffs != roots);
 
 	double a = coeffs[n_coeffs - 3], b = coeffs[n_coeffs - 2], c = coeffs[n_coeffs - 1];
+	for(int i = 0; i < n_roots; ++i)
+		roots[i] = 0;
 
 	if(a == 0) //in square_equation (a*x^2 + b*x + c = 0) is a -> b*x = -c
 		return solve_linear_equation(coeffs, n_coeffs, roots);
