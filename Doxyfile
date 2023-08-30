@@ -864,7 +864,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  =  main.cpp   main.h   print_in_different_colours.cpp   print_in_different_colours.h   square_equation_solve.cpp   square_equation_solve.h   test.cpp   test.h
+INPUT                  =  main.cpp   main.h   print_in_different_colours.cpp   print_in_different_colours.h   square_equation_solve.cpp   square_equation_solve.h   test.cpp   test.h   work_with_double.h   work_with_double.cpp   calculator.cpp   calculator.h   calculator_func.cpp
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
