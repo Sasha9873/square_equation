@@ -7,6 +7,7 @@
 #include "main.h"
 #include "print_in_different_colours.h"
 #include "work_with_double.h"
+#include "calculator.h"
 
 
 /**

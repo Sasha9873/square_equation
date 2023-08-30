@@ -2,6 +2,64 @@
 */
 #include "square_equation_solve.h"
 
+
+void input_x_coeffs(double* coeffs, int n_coeffs)
+{
+	assert(coeffs);
+	for(int i = 0; i < n_coeffs; ++i)
+		coeffs[i] = 0;
+
+	printf("Please write ax^2 + bx +c: ");
+
+	char* str = (char*)calloc(200, sizeof(char));
+	assert(str);
+
+	fgets(str, 199, stdin);
+
+	int pos = 0;
+
+	while(str[pos] != '\n')
+	{
+		double val = 0;
+		val = get_general(str, &pos);
+		printf("%.3f\n", val);
+
+		printf("str[%d] = %c  %d  %d  %d\n", pos, str[pos], str[pos] == 'x', is_close_to_zero(val), pos < strlen(str) );
+
+		if(pos < strlen(str) && str[pos] == 'x')
+		{
+			printf("aaaa\n");
+			++pos;
+			if(pos < strlen(str) && str[pos] == '^' && str[pos + 1] == '2')
+			{
+				printf("bbbb\n");
+				pos += 2;
+				coeffs[0] += val;
+
+				if(is_close_to_zero(val))
+					coeffs[0] += 1;
+			}
+			else
+			{
+				printf("aaaa\n");
+				coeffs[1] += val;
+
+				if(is_close_to_zero(val))
+				{
+					printf("aaaa\n");
+					coeffs[1] += 1;
+				}
+			}
+		}
+		else
+			coeffs[2] += val;
+	}
+
+	printf("coeffs: %f %f %f\n", coeffs[0], coeffs[1], coeffs[2]);
+	
+	free(str);
+}
+
 int input_one_coeff(double* coeff)
 {
 	assert(coeff);
@@ -22,6 +80,8 @@ void clear_input_buffer()
 void input_coeffs(double* coeffs, int n_coeffs)
 {
 	assert(coeffs);
+	for(int i = 0; i < n_coeffs; ++i)
+		coeffs[i] = 0;
 
 	printf("Please write %d coeffs: ", n_coeffs);
 

@@ -29,6 +29,8 @@ enum number_of_roots
 };
 
 
+void input_x_coeffs(double* coeffs, int n_coeffs);
+
 /**
  * Reads coefficients of the equation from the stdin.
  * 

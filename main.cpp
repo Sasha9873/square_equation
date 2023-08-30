@@ -34,6 +34,18 @@ int main(int argc, char const *argv[])
         return 0;
     }	
 
+    if(!strcmp(flag, "-x"))
+    {
+        double coeffs[N_COEFFS];
+		double roots[MAX_N_ROOTS];
+
+		input_x_coeffs(coeffs, N_COEFFS);
+		int n_roots = solve_square_equation(coeffs, N_COEFFS, roots, MAX_N_ROOTS);
+		print_roots(roots, n_roots);
+        
+        return 0;
+    }
+
 	print_red("You have writen something wrong.\n");
 	print_green("Please read documentation:\n");
 

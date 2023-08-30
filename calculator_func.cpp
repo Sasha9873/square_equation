@@ -14,8 +14,12 @@ double get_number(char* str, int* pos)
 	double val = 0;
 
 	val = strtod(&(str[*pos]), &ptr);
-	
+
+	/*if(ptr == &str[*pos])
+		syntax_error(str, pos);*/
+
 	*pos = strlen(str) - strlen(ptr);
+
 
 	delete_spaces(str, pos);
 
@@ -40,15 +44,15 @@ double get_number(char* str, int* pos)
 
 void syntax_error(char* str, int* pos)
 {
-	printf("You have syntax error! Your last string: %s, current symbol  = \"%c\"\n", str, str[*pos]);
+	printf("You have syntax error! Your last string: %s current symbol  = \"%c\"\n", str, str[*pos]);
 }
 
 double get_general(char* str, int* pos)
 {
 	double val = get_expression(str, pos);
 
-	if(str[*pos] == '$')
-		++(*pos);
+	if(str[*pos] == '\n' || str[*pos] == 'x')
+		return val;
 	else
 		syntax_error(str, pos);
 
