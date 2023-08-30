@@ -2,7 +2,7 @@
 
 int main()
 {
-	char* str = calloc(100, sizeof(char));
+	char* str = (char*)calloc(100, sizeof(char));
 	if(!str)
 		return 1;
 

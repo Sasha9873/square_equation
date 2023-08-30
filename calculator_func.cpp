@@ -3,6 +3,41 @@
 
 #include "calculator.h"
 
+
+double get_number(char* str, int* pos)
+{    
+	delete_spaces(str, pos);
+
+		//or change str instead of ptr --> str not const
+	char* ptr = NULL;
+	double val = 0;
+	val = strtod(&(str[*pos]), &ptr);
+	*pos = strlen(str) - strlen(ptr);
+	while(str[*pos] == ' ')
+		++(*pos);
+	//printf("c = \'%c\' %d val = %f\n", str[*pos], *pos, val);
+	
+	delete_spaces(str, pos);
+
+	return val;
+}
+
+/*double get_number(char** str, int* index)
+{    
+	char* ptr = NULL;
+	printf("%p \n", *str);
+
+	double val = 0;
+	val = strtod(*str, &ptr);
+
+	*index = 0;
+	*str = ptr;
+
+	printf("%p c = %s ptr = %s %d\n", *str, *str, ptr, *index);
+
+	return val;
+}*/
+
 void syntax_error(char* str, int* pos)
 {
 	printf("You have syntax error! Your last string: %s, current symbol  = \"%c\"\n", str, str[*pos]);
@@ -23,6 +58,8 @@ double get_general(char* str, int* pos)
 double get_num(char* str, int* pos)
 {
 	//printf("aaa pos = %d str[pos] = %c\n", *pos, str[*pos]);
+
+	delete_spaces(str, pos);
 
 	double val = 0;
 	int k = 0;
@@ -103,7 +140,7 @@ double get_parenthesis(char* str, int* pos)
 		return val;
 	}
 	else
-		return get_num(str, pos);
+		return get_number(str, pos);
 }
 
 void delete_spaces(char* str, int* pos)
