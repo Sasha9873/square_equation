@@ -6,6 +6,7 @@
 
 #include "main.h"
 #include "print_in_different_colours.h"
+#include "work_with_double.h"
 
 
 /**
@@ -33,13 +34,5 @@ int solve_linear_equation(const double* coeffs, int n_coeffs, double* roots);
 */
 void clear_input_buffer();
 
-/** 
- * Сhecks the equality of the number to zero with the appropriate PRECISION.
- * 
- * \param[in] num Number to check.
- * 
- * \returns True if the number are close to the zero with the PRECISION error, otherwise it returns False.
-*/ 
-bool close_to_zero(double num);
 
 #endif

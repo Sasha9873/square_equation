@@ -69,14 +69,6 @@ int solve_linear_equation(const double* coeffs, int n_coeffs, double* roots)
 	return ONE_ROOT;
 }
 
-bool close_to_zero(double num)
-{
-	//printf("\n%lf %lf %d\n", fabs(num), PRECISION, fabs(num) < PRECISION);
-	if(fabs(num) < PRECISION)
-		return true;
-	return false;
-}
-
 int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int max_n_roots)
 {
 	assert(coeffs);
@@ -98,10 +90,10 @@ int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int
 	//double descriminant = coeffs[1] * coeffs[1] - 4 * coeffs[0] * coeffs[2];  //b*b - 4*a*c
 	double descriminant = b*b - 4*a*c;
 
-	if(close_to_zero(descriminant))
+	if(is_close_to_zero(descriminant))
 	{
 		roots[0] = -b / (2*a);
-		if(close_to_zero(roots[0]))
+		if(is_close_to_zero(roots[0]))
 			roots[0] = 0;
 
 		return ONE_ROOT;
@@ -112,7 +104,7 @@ int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int
 
 	//printf("\ndescr = %lf\n", descriminant);
 
-	assert(!close_to_zero(a));
+	assert(!is_close_to_zero(a));
 	roots[0] = (-b - sqrt(descriminant)) / (2*a);
 	roots[1] = (-b + sqrt(descriminant)) / (2*a);
 	

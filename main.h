@@ -16,7 +16,7 @@
 const int N_COEFFS = 3;         /// amount of coefficients in the equation
 const int MAX_FLAG_LEN = 10;    /// max length of the flag writing after ./main
 const int MAX_N_ROOTS = 2;      /// max amoutn of roots in the equation 
-const double PRECISION = 10e-4; /// double compare accuracy
+//const double PRECISION = 10e-4; /// double compare accuracy
 
 
 /// It is used in return statements. Value depends on amount of roots.
