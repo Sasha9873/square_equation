@@ -81,7 +81,7 @@ int solve_square_equation(const double* coeffs, int n_coeffs, double* roots, int
     assert (coeffs != roots);
 
 	double a = coeffs[n_coeffs - 3], b = coeffs[n_coeffs - 2], c = coeffs[n_coeffs - 1];
-	for(int i = 0; i < n_roots; ++i)
+	for(int i = 0; i < max_n_roots; ++i)
 		roots[i] = 0;
 
 	if(a == 0) //in square_equation (a*x^2 + b*x + c = 0) is a -> b*x = -c

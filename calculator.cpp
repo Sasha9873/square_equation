@@ -1,4 +1,4 @@
-#include "calculator.h"
+/*#include "calculator.h"
 
 int main()
 {
@@ -14,4 +14,4 @@ int main()
 	free(str);
 
 	return 0;
-}
+}*/

@@ -6,17 +6,17 @@
 
 double get_number(char* str, int* pos)
 {    
+	//or change str instead of ptr --> str not const
+
 	delete_spaces(str, pos);
 
-		//or change str instead of ptr --> str not const
 	char* ptr = NULL;
 	double val = 0;
+
 	val = strtod(&(str[*pos]), &ptr);
-	*pos = strlen(str) - strlen(ptr);
-	while(str[*pos] == ' ')
-		++(*pos);
-	//printf("c = \'%c\' %d val = %f\n", str[*pos], *pos, val);
 	
+	*pos = strlen(str) - strlen(ptr);
+
 	delete_spaces(str, pos);
 
 	return val;
