@@ -10,12 +10,16 @@
 #include "calculator.h"
 
 
+static const int MAX_LEN_STR_WITH_EQUATION = 200;
+
+
 /**
  * Reads one coefficient of the equation from the stdin.
  * 
  * \param[out] coeff Entered coefficient.
 */
 int input_one_coeff(double* coeff);
+
 
 /**
  * Solves linear equation with given parameters b, c which is written on two last places in array coeffs.  

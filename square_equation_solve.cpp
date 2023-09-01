@@ -11,42 +11,44 @@ void input_x_coeffs(double* coeffs, int n_coeffs)
 
 	printf("Please write ax^2 + bx +c: ");
 
-	char* str = (char*)calloc(200, sizeof(char));
+	char* str = (char*)calloc(MAX_LEN_STR_WITH_EQUATION, sizeof(char));
 	assert(str);
 
-	fgets(str, 199, stdin);
+	fgets(str, MAX_LEN_STR_WITH_EQUATION - 1, stdin);
 
-	int pos = 0;
+	int cur_pos_in_str = 0;
 
-	while(str[pos] != '\n')
+	while(str[cur_pos_in_str] != '\n')
 	{
 		double val = 0;
-		val = get_general(str, &pos);
+		int old_pos_in_str = cur_pos_in_str;
+
+		val = get_general(str, &cur_pos_in_str);
 		printf("%.3f\n", val);
 
-		printf("str[%d] = %c  %d  %d  %d\n", pos, str[pos], str[pos] == 'x', is_close_to_zero(val), pos < strlen(str) );
+		printf("str[%d] = %c  %d  %d  %d\n", cur_pos_in_str, str[cur_pos_in_str], str[cur_pos_in_str] == 'x', is_close_to_zero(val), cur_pos_in_str < strlen(str) );
 
-		if(pos < strlen(str) && str[pos] == 'x')
+		if(cur_pos_in_str < strlen(str) && str[cur_pos_in_str] == 'x')
 		{
-			printf("aaaa\n");
-			++pos;
-			if(pos < strlen(str) && str[pos] == '^' && str[pos + 1] == '2')
+			//printf("aaaa\n");
+			++cur_pos_in_str;
+			if(cur_pos_in_str < strlen(str) && str[cur_pos_in_str] == '^' && str[cur_pos_in_str + 1] == '2')
 			{
-				printf("bbbb\n");
-				pos += 2;
+				//printf("bbbb\n");
+				cur_pos_in_str += 2;
 				coeffs[0] += val;
 
-				if(is_close_to_zero(val))
+				if(is_close_to_zero(val) && old_pos_in_str + 3 == cur_pos_in_str)
 					coeffs[0] += 1;
 			}
 			else
 			{
-				printf("aaaa\n");
+				//printf("aaaa\n");
 				coeffs[1] += val;
 
-				if(is_close_to_zero(val))
+				if(is_close_to_zero(val) && old_pos_in_str + 1 == cur_pos_in_str)
 				{
-					printf("aaaa\n");
+					//printf("aaaa\n");
 					coeffs[1] += 1;
 				}
 			}
