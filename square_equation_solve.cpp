@@ -22,33 +22,37 @@ void input_x_coeffs(double* coeffs, int n_coeffs)
 	{
 		double val = 0;
 		int old_pos_in_str = cur_pos_in_str;
+		bool is_num = 0;
 
-		val = get_general(str, &cur_pos_in_str);
+		val = get_general(str, &cur_pos_in_str, &is_num);
 		printf("%.3f\n", val);
 
 		printf("str[%d] = %c  %d  %d  %d\n", cur_pos_in_str, str[cur_pos_in_str], str[cur_pos_in_str] == 'x', is_close_to_zero(val), cur_pos_in_str < strlen(str) );
 
 		if(cur_pos_in_str < strlen(str) && str[cur_pos_in_str] == 'x')
 		{
-			//printf("aaaa\n");
+			printf("aaaaa\n");
 			++cur_pos_in_str;
 			if(cur_pos_in_str < strlen(str) && str[cur_pos_in_str] == '^' && str[cur_pos_in_str + 1] == '2')
 			{
-				//printf("bbbb\n");
 				cur_pos_in_str += 2;
 				coeffs[0] += val;
+				printf("bbbbb %d %d %d 555\n", old_pos_in_str + 3 == cur_pos_in_str, old_pos_in_str, cur_pos_in_str);
 
-				if(is_close_to_zero(val) && old_pos_in_str + 3 == cur_pos_in_str)
+				if(is_close_to_zero(val) && !is_num)
+				{
+					printf("bbbbbb\n");
 					coeffs[0] += 1;
+				}
 			}
 			else
 			{
-				//printf("aaaa\n");
+				printf("aaaa\n");
 				coeffs[1] += val;
 
-				if(is_close_to_zero(val) && old_pos_in_str + 1 == cur_pos_in_str)
+				if(is_close_to_zero(val) && !is_num)
 				{
-					//printf("aaaa\n");
+					printf("aaaa\n");
 					coeffs[1] += 1;
 				}
 			}
